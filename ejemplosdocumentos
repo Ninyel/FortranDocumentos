@@ -1,0 +1,14 @@
+program ejemplosdocumentos
+	character(len=20)::nomodocument
+
+
+!aqui se eligen los nombres
+	write(*,*) "Escriba como quiere guardar su documento, recuerde que se guardaràn con extensiòn .txt"
+	read(*,*) nomodocument
+    nomodocument=nomodocument//".txt"
+    open(unit=10,FILE=nomodocument,status='unknown')
+	write(10,*)"bljkbmnskmj jbdkjbskjb sjabhcdkjbc jkhbvsc"
+	close(10)
+
+
+end program ejemplosdocumentos
