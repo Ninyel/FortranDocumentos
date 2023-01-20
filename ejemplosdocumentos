@@ -1,14 +1,19 @@
-program ejemplosdocumentos
-	character(len=20)::nomodocument
+program Archivos
+    integer::error_escritura
+    character(20)::nomodokumento
 
 
-!aqui se eligen los nombres
-	write(*,*) "Escriba como quiere guardar su documento, recuerde que se guardaràn con extensiòn .txt"
-	read(*,*) nomodocument
-    nomodocument=nomodocument//".txt"
-    open(unit=10,FILE=nomodocument,status='unknown')
-	write(10,*)"bljkbmnskmj jbdkjbskjb sjabhcdkjbc jkhbvsc"
-	close(10)
+
+1310    write(*,*) "Escriba como quiere guardar su documento"
+        read(*,*) nomodokumento
+	nomodokumento=nomodokumento//".txt"
+    	OPEN (198,FILE=nomodokumento,status='new',IOSTAT=error_escritura)
+
+        Write(198,*,err=23)"          -Reymsa 2023-            "
+23      if(error_escritura>0)then
+            Write(*,*)"Error en el nombre del archivo, por favor, elija otro nombre"
+            go to 1310
+        end if
 
 
-end program ejemplosdocumentos
+End program
